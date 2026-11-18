@@ -369,7 +369,7 @@ details p { padding: 0 20px 18px; margin: 0; color: var(--muted); }
   }
   .tabbar a {
     display: grid; justify-items: center; gap: 2px; padding: 6px 2px; border-radius: 10px;
-    color: var(--muted); text-decoration: none; font-size: .72rem; font-weight: 600;
+    color: var(--muted); text-decoration: none; font-size: .7rem; font-weight: 600; text-align: center; line-height: 1.2;
   }
   .tabbar svg { width: 22px; height: 22px; fill: currentColor; }
   .tabbar a:active, .tabbar a.on { color: var(--neon-2); background: rgba(47, 168, 255, .1); }
