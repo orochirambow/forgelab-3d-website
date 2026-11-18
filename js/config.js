@@ -21,10 +21,8 @@ window.FORGELAB_CONFIG = {
     materials: {
       "PLA":             { perGram: 0.18 },
       "PETG":            { perGram: 0.20 },
-      "ABS / ASA":       { perGram: 0.24 },
       "TPU":             { perGram: 0.30 },
-      "Nylon / Carbone": { perGram: 0.42 },
-      "Résine":          { perGram: 0.45 }
+      "Nylon / Carbone": { perGram: 0.42 }
     },
     // Remise par quantité : à partir de N pièces, -X %
     volumeDiscounts: [

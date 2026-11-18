@@ -62,7 +62,7 @@
         </div>
         <ul class="hero-stats">
           <li><strong>24 h</strong><span>pour recevoir un devis</span></li>
-          <li><strong>6+</strong><span>matériaux disponibles</span></li>
+          <li><strong>4</strong><span>familles de filaments</span></li>
           <li><strong>1 → 500</strong><span>pièces par commande</span></li>
         </ul>
       </div>
@@ -102,7 +102,7 @@
           <article class="card">
             <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 9 6H5l1 5-3 3 4 1 1 5 4-2 4 2 1-5 4-1-3-3 1-5h-4l-3-4Zm0 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg></div>
             <h3>Figurines &amp; décoration</h3>
-            <p>Miniatures, bustes, objets déco, cosplay : détails fins en résine ou grand format en PLA.</p>
+            <p>Miniatures, bustes, objets déco, cosplay : imprimés en filament avec des couches fines pour un beau rendu de surface.</p>
           </article>
           <article class="card">
             <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17.2V21h3.8L17.8 10 14 6.2 3 17.2ZM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8L19 8.8 20.7 7Z"/></svg></div>
@@ -119,7 +119,7 @@
         <div class="forge-text">
           <p class="eyebrow">L'atelier</p>
           <h2>Une capacité d'impression disponible pour vous</h2>
-          <p>Notre parc de machines tourne jour et nuit. Plutôt que d'investir dans une imprimante, réservez simplement du temps machine : nous gérons les réglages, la maintenance et le contrôle qualité.</p>
+          <p>L'atelier imprime sur une Bambu Lab X2D, une imprimante filament rapide et précise. Plutôt que d'investir dans une machine, réservez simplement du temps d'impression : nous gérons les réglages, la maintenance et le contrôle qualité.</p>
           <ul class="checks">
             <li>Réglages optimisés pour chaque matière</li>
             <li>Contrôle de chaque pièce avant envoi</li>
@@ -128,9 +128,9 @@
           </ul>
         </div>
         <div class="specs">
-          <div class="spec"><span class="k">Technologies</span><span class="v">FDM &amp; résine</span></div>
-          <div class="spec"><span class="k">Volume max. (FDM)</span><span class="v">256 × 256 × 256 mm</span></div>
-          <div class="spec"><span class="k">Précision résine</span><span class="v">jusqu'à 0,05 mm</span></div>
+          <div class="spec"><span class="k">Imprimante</span><span class="v">Bambu Lab X2D</span></div>
+          <div class="spec"><span class="k">Technologie</span><span class="v">Filament (FDM)</span></div>
+          <div class="spec"><span class="k">Grandes pièces</span><span class="v">découpe et assemblage</span></div>
           <div class="spec"><span class="k">Hauteur de couche</span><span class="v">0,08 – 0,28 mm</span></div>
           <div class="spec"><span class="k">Délai standard</span><span class="v">3 à 5 jours ouvrés</span></div>
           <div class="spec"><span class="k">Express</span><span class="v">24 – 48 h selon dispo</span></div>
@@ -174,20 +174,12 @@
             <dl><dt>Résistance</dt><dd><i style="--v:4"></i></dd><dt>Chaleur</dt><dd><i style="--v:3"></i></dd><dt>Détail</dt><dd><i style="--v:3"></i></dd></dl>
           </article>
           <article class="mat">
-            <h3>ABS / ASA</h3><p>Tient la chaleur et les UV. Pièces auto, extérieur, boîtiers.</p>
-            <dl><dt>Résistance</dt><dd><i style="--v:4"></i></dd><dt>Chaleur</dt><dd><i style="--v:4"></i></dd><dt>Détail</dt><dd><i style="--v:3"></i></dd></dl>
-          </article>
-          <article class="mat">
             <h3>TPU</h3><p>Flexible comme du caoutchouc. Joints, protections, poignées, amortisseurs.</p>
             <dl><dt>Résistance</dt><dd><i style="--v:5"></i></dd><dt>Chaleur</dt><dd><i style="--v:2"></i></dd><dt>Détail</dt><dd><i style="--v:2"></i></dd></dl>
           </article>
           <article class="mat">
             <h3>Nylon / Carbone</h3><p>Très résistant et rigide. Engrenages, fixations, pièces mécaniques.</p>
             <dl><dt>Résistance</dt><dd><i style="--v:5"></i></dd><dt>Chaleur</dt><dd><i style="--v:4"></i></dd><dt>Détail</dt><dd><i style="--v:3"></i></dd></dl>
-          </article>
-          <article class="mat">
-            <h3>Résine</h3><p>Finesse extrême, surface lisse. Figurines, bijoux, maquettes.</p>
-            <dl><dt>Résistance</dt><dd><i style="--v:2"></i></dd><dt>Chaleur</dt><dd><i style="--v:2"></i></dd><dt>Détail</dt><dd><i style="--v:5"></i></dd></dl>
           </article>
         </div>
       </div>
@@ -253,8 +245,8 @@
             <label>Matériau
               <select name="materiau" id="q-mat">
                 <option>Je ne sais pas, conseillez-moi</option>
-                <option>PLA</option><option>PETG</option><option>ABS / ASA</option>
-                <option>TPU</option><option>Nylon / Carbone</option><option>Résine</option>
+                <option>PLA</option><option>PETG</option>
+                <option>TPU</option><option>Nylon / Carbone</option>
               </select>
             </label>
             <label>Quantité<input name="quantite" id="q-qty" type="number" min="1" value="1" inputmode="numeric"></label>

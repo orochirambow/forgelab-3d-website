@@ -5,7 +5,7 @@ Site statique (HTML, CSS, JavaScript sans dépendance) pour ForgeLab 3D, atelier
 ## Contenu
 - Accueil avec visuel héros (viking forgeron)
 - Services, atelier et capacité machine, processus en 4 étapes
-- Matériaux (PLA, PETG, ABS/ASA, TPU, Nylon/Carbone, Résine)
+- Matériaux (PLA, PETG, TPU, Nylon/Carbone) en filament
 - Estimateur de prix indicatif
 - Formulaire de devis avec dépôt de fichiers 3D (STL, 3MF, STEP, OBJ…)
 - FAQ, contact, page confidentialité (nLPD)

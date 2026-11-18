@@ -292,7 +292,12 @@ details p { padding: 0 20px 18px; margin: 0; color: var(--muted); }
   .hero-inner { padding: 0 0 48px; margin-top: -20px; position: relative; }
 }
 @media (min-width: 900px) {
-  .cards, .materials { grid-template-columns: repeat(3, 1fr); }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .materials { grid-template-columns: repeat(2, 1fr); }
 }
 #devis .section-head { margin-inline: auto; text-align: center; }
 .quote { margin-inline: auto; }
+@media (min-width: 1100px) {
+  .materials { grid-template-columns: repeat(4, 1fr); }
+  .mat dl { grid-template-columns: 76px 1fr; }
+}
