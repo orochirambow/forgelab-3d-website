@@ -121,7 +121,7 @@
   var selMat = $("#est-mat"), w = $("#est-w"), wOut = $("#est-w-out"), q = $("#est-q"), ex = $("#est-express"), out = $("#est-price");
   if (p && selMat) {
     Object.keys(p.materials).forEach(function (m) { var o = document.createElement("option"); o.textContent = m; selMat.appendChild(o); });
-    var chf = function (n) { return "CHF " + (Math.round(n * 2) / 2).toFixed(2).replace(".00", ".–"); };
+    var chf = function (n) { return "CHF " + (Math.round(n * 2) / 2).toFixed(2).replace(".00", ""); };
     var calc = function () {
       var grams = +w.value, qty = Math.max(1, Math.min(500, parseInt(q.value, 10) || 1));
       wOut.textContent = grams + " g";
