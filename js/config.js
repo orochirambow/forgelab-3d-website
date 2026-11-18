@@ -12,11 +12,11 @@ window.FORGELAB_CONFIG = {
 
   // Paiement en ligne (carte bancaire + TWINT) via des liens de paiement.
   // Seuls les liens hébergés sur ces domaines sont acceptés par la page paiement.html.
-  // Payrexx : ajoutez votre sous-domaine, ex. "forgelab3d.payrexx.com" (ou gardez "payrexx.com").
-  // Stripe : "buy.stripe.com".
+  // Prestataire actuel : Stripe (liens « buy.stripe.com »).
+  // Pour passer à Payrexx plus tard : providerName "Payrexx" et ajoutez "payrexx.com".
   payment: {
-    providerName: "Payrexx",
-    allowedHosts: ["payrexx.com", "buy.stripe.com"]
+    providerName: "Stripe",
+    allowedHosts: ["buy.stripe.com"]
   },
 
   // Galerie « Réalisations »
