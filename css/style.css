@@ -410,3 +410,11 @@ details p { padding: 0 20px 18px; margin: 0; color: var(--muted); }
 .pay-thanks { justify-items: center; text-align: center; }
 .pay-thanks .icon { margin: 0; }
 textarea[readonly] { font-size: .9rem; color: #cfd6e2; }
+
+/* Price table */
+.price-table { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-variant-numeric: tabular-nums; }
+.price-table caption { text-align: left; font: 700 .78rem var(--head); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; }
+.price-table th, .price-table td { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.price-table th { text-align: left; font-weight: 600; }
+.price-table td { text-align: right; font-family: var(--head); font-weight: 700; color: var(--fire-2); }
+.price-notes { font-size: .88rem; color: var(--muted); }

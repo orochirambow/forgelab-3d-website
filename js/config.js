@@ -7,6 +7,15 @@ window.FORGELAB_CONFIG = {
   email: "contact.forgelab3d@gmail.com",
   city: "1027 Lonay (VD) · envoi par La Poste",
 
+  // Mentions légales et CGV (pages mentions-legales.html, cgv.html, confidentialite.html)
+  legal: {
+    owner: "Evan Allan Özkan",
+    street: "",       // rue et numéro, ex. "Chemin des Pressoirs 3" (obligatoire pour la loi)
+    form: "entreprise individuelle",
+    ide: "",          // numéro IDE (CHE-xxx.xxx.xxx) si inscrit au registre du commerce
+    vatNumber: ""     // numéro TVA si assujetti, sinon laisser vide
+  },
+
   // Adresse publique du site (sert à créer les liens de paiement)
   siteUrl: "https://orochirambow.github.io/forgelab-3d-website/",
 

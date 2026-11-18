@@ -116,6 +116,21 @@
     var hero = $(".hero"); if (hero) { hero.id = hero.id || "accueil"; tabFor.accueil = tabFor.top; secIo.observe(hero); }
   }
 
+  // Price table (from config)
+  var pt = $("#price-table"), pn = $("#price-notes");
+  if (pt && cfg.pricing) {
+    var body = pt.querySelector("tbody");
+    Object.keys(cfg.pricing.materials).forEach(function (k) {
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<th scope=\"row\"></th><td></td>";
+      tr.firstChild.textContent = k;
+      tr.lastChild.textContent = "CHF " + cfg.pricing.materials[k].perGram.toFixed(2) + " / g";
+      body.appendChild(tr);
+    });
+    var d = cfg.pricing.volumeDiscounts.map(function (v) { return "−" + Math.round(v.discount * 100) + " % dès " + v.from + " pièces"; }).join(", ");
+    pn.textContent = "Frais de préparation CHF " + cfg.pricing.setupFee + " par commande · minimum CHF " + cfg.pricing.minimum + " · remises : " + d + ". Envoi par La Poste en sus.";
+  }
+
   // Estimator
   var p = cfg.pricing;
   var selMat = $("#est-mat"), w = $("#est-w"), wOut = $("#est-w-out"), q = $("#est-q"), ex = $("#est-express"), out = $("#est-price");

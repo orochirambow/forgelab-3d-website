@@ -36,7 +36,7 @@
         <a href="#forge">L'atelier</a>
         <a href="#realisations">Nos réalisations</a>
         <a href="#materiaux">Matériaux</a>
-        <a href="#estimation">Estimation</a>
+        <a href="#estimation">Tarifs</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-fire btn-sm" href="#devis">Demander un devis</a>
       </nav>
@@ -222,9 +222,14 @@
     <section id="estimation" class="section section-forge">
       <div class="wrap est-grid">
         <div>
-          <p class="eyebrow">Estimation rapide</p>
+          <p class="eyebrow">Tarifs</p>
           <h2>Combien coûte votre pièce ?</h2>
-          <p>Une première idée en quelques secondes. Le prix final dépend de la géométrie, du remplissage et de la finition : il est confirmé dans votre devis.</p>
+          <p>Le prix dépend surtout du poids de la pièce et de la matière. Utilisez l'estimateur pour une première idée : le prix exact est confirmé dans votre devis gratuit.</p>
+          <table class="price-table" id="price-table">
+            <caption>Prix au gramme imprimé</caption>
+            <tbody></tbody>
+          </table>
+          <p class="price-notes" id="price-notes"></p>
         </div>
         <form class="estimator" id="estimator" onsubmit="return false">
           <label>Matériau
@@ -239,7 +244,7 @@
           <div class="est-result" aria-live="polite">
             <span>Estimation</span>
             <strong id="est-price">CHF —</strong>
-            <small>Prix indicatif TTC, hors livraison</small>
+            <small>Prix indicatif en CHF, hors frais de port</small>
           </div>
           <a class="btn btn-fire" href="#devis" id="est-to-quote">Obtenir le prix exact</a>
         </form>
@@ -291,7 +296,7 @@
             <span class="drop-list" id="file-list"></span>
           </label>
           <label>Votre projet *<textarea name="message" rows="5" required placeholder="Usage de la pièce, dimensions, contraintes, délai souhaité…"></textarea></label>
-          <label class="inline"><input type="checkbox" name="consentement" required><span>J'accepte que mes données soient utilisées pour traiter ma demande (<a href="confidentialite.html">confidentialité</a>). *</span></label>
+          <label class="inline"><input type="checkbox" name="consentement" required><span>J'accepte les <a href="cgv.html">conditions générales de vente</a> et l'utilisation de mes données pour traiter ma demande (<a href="confidentialite.html">confidentialité</a>). *</span></label>
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-fire btn-lg" type="submit">Envoyer ma demande</button>
           <p class="form-status" id="form-status" role="status"></p>
@@ -345,7 +350,7 @@
     <div class="wrap footer-inner">
       <a class="brand" href="#top"><img src="assets/img/favicon-64.png" alt="" width="28" height="28"><span>FORGELAB <b>3D</b></span></a>
       <p>© <span id="year">2026</span> ForgeLab 3D · Impression 3D sur mesure</p>
-      <nav><a href="paiement.html">Payer ma commande</a><a href="confidentialite.html">Confidentialité</a><a href="#devis">Devis</a><a href="#top">Haut de page ↑</a></nav>
+      <nav><a href="paiement.html">Payer ma commande</a><a href="cgv.html">CGV</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="#devis">Devis</a><a href="#top">Haut de page ↑</a></nav>
     </div>
   </footer>
 
