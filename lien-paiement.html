@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créer un lien de paiement · ForgeLab 3D</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="icon" href="assets/img/favicon-64.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/img/favicon-64.png" alt="" width="36" height="36"><span>FORGELAB <b>3D</b></span></a>
+      <span class="eyebrow" style="margin:0">Outil interne</span>
+    </div>
+  </header>
+  <main class="pay-page">
+    <div class="wrap pay-wrap">
+      <h1>Créer un lien de paiement</h1>
+      <p class="pay-intro">Pour chaque devis validé : créez d'abord le lien de paiement chez votre prestataire, avec le montant exact. Collez-le ici avec le numéro de devis pour obtenir le lien à envoyer au client.</p>
+
+      <form class="quote" id="gen" novalidate>
+        <div class="row">
+          <label for="g-ref">Numéro de devis *<input id="g-ref" required placeholder="FL-2026-001"></label>
+          <label for="g-amount">Montant (CHF) *<input id="g-amount" required inputmode="decimal" placeholder="45.50"></label>
+        </div>
+        <label for="g-name">Nom du client<input id="g-name" placeholder="Marie Dupont"></label>
+        <label for="g-link">Lien de paiement du prestataire *<input id="g-link" required placeholder="https://forgelab3d.payrexx.com/…"></label>
+        <button class="btn btn-fire" type="submit">Créer le lien client</button>
+        <p class="form-status" id="g-status" role="status"></p>
+      </form>
+
+      <section class="pay-card" id="g-out" hidden>
+        <label for="g-url">Lien à envoyer au client<textarea id="g-url" rows="3" readonly></textarea></label>
+        <div class="hero-cta" style="margin:0">
+          <button class="btn btn-ghost btn-sm" type="button" data-copy="g-url">Copier le lien</button>
+          <a class="btn btn-ghost btn-sm" id="g-test" target="_blank" rel="noopener">Tester la page</a>
+        </div>
+        <label for="g-mail">Texte d'e-mail prêt à envoyer<textarea id="g-mail" rows="9" readonly></textarea></label>
+        <button class="btn btn-ghost btn-sm" type="button" data-copy="g-mail">Copier le texte</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script>
+  (function () {
+    var cfg = window.FORGELAB_CONFIG || {}, pay = cfg.payment || {};
+    var $ = function (id) { return document.getElementById(id); };
+    var base = (cfg.siteUrl || location.href.replace(/[^/]*$/, "")).replace(/\/?$/, "/");
+    var okHost = function (url) {
+      try {
+        var u = new URL(url);
+        return u.protocol === "https:" && (pay.allowedHosts || []).some(function (h) {
+          return u.hostname === h || u.hostname.slice(-(h.length + 1)) === "." + h;
+        });
+      } catch (e) { return false; }
+    };
+    $("gen").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var st = $("g-status"); st.className = "form-status";
+      var ref = $("g-ref").value.trim(), name = $("g-name").value.trim(), link = $("g-link").value.trim();
+      var amount = parseFloat($("g-amount").value.replace(",", "."));
+      if (!ref || !(amount > 0)) { st.textContent = "Indiquez le numéro de devis et un montant valide."; st.classList.add("err"); return; }
+      if (!okHost(link)) { st.textContent = "Ce lien ne vient pas de votre prestataire de paiement (" + (pay.allowedHosts || []).join(", ") + "). Vérifiez-le ou ajoutez le domaine dans js/config.js."; st.classList.add("err"); return; }
+      var p = new URLSearchParams({ devis: ref, montant: amount.toFixed(2), lien: link });
+      if (name) p.set("nom", name);
+      var url = base + "paiement.html?" + p.toString();
+      $("g-url").value = url; $("g-test").href = url;
+      $("g-mail").value = "Bonjour" + (name ? " " + name : "") + ",\n\n" +
+        "Merci d'avoir validé le devis " + ref + " d'un montant de CHF " + amount.toFixed(2) + ".\n\n" +
+        "Vous pouvez régler votre commande par carte bancaire ou TWINT ici :\n" + url + "\n\n" +
+        "L'impression démarre dès réception du paiement. Comptez 5 à 7 jours ouvrés, puis 1 à 2 jours d'envoi par La Poste.\n\n" +
+        "Belle journée,\nForgeLab 3D";
+      $("g-out").hidden = false;
+      st.textContent = "Lien créé."; st.classList.add("ok");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (b) {
+      b.addEventListener("click", function () {
+        var t = $(b.getAttribute("data-copy")), label = b.textContent;
+        var done = function () { b.textContent = "Copié"; setTimeout(function () { b.textContent = label; }, 1500); };
+        if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(done, function () { t.select(); });
+        else { t.select(); }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

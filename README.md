@@ -18,6 +18,15 @@ Tout se règle dans `js/config.js` :
 
 Les textes (délais, volume d'impression, etc.) sont dans `index.html`. Pensez aussi à compléter `confidentialite.html` (nom et adresse).
 
+## Paiement par carte et TWINT
+1. Ouvrez un compte chez Payrexx (ou Stripe) et activez cartes + TWINT.
+2. Pour chaque devis validé, créez un lien de paiement (Paylink) avec le montant exact.
+   Adresse de retour après paiement : `https://orochirambow.github.io/forgelab-3d-website/paiement-merci.html`
+3. Ouvrez `lien-paiement.html` sur votre site, collez le lien, le numéro de devis et le montant.
+4. Envoyez au client le lien obtenu : il arrive sur `paiement.html` (votre site), voit le récapitulatif et paie.
+
+Le domaine du prestataire doit figurer dans `payment.allowedHosts` (`js/config.js`).
+
 ## Mettre en ligne avec GitHub Pages
 1. Settings → Pages → Source : « Deploy from a branch », branche `main`, dossier `/ (root)`.
 2. Le site est publié sur `https://<utilisateur>.github.io/forgelab-3d-website/`.

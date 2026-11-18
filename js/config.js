@@ -7,6 +7,18 @@ window.FORGELAB_CONFIG = {
   email: "contact.forgelab3d@gmail.com",
   city: "1027 Lonay (VD) · envoi par La Poste",
 
+  // Adresse publique du site (sert à créer les liens de paiement)
+  siteUrl: "https://orochirambow.github.io/forgelab-3d-website/",
+
+  // Paiement en ligne (carte bancaire + TWINT) via des liens de paiement.
+  // Seuls les liens hébergés sur ces domaines sont acceptés par la page paiement.html.
+  // Payrexx : ajoutez votre sous-domaine, ex. "forgelab3d.payrexx.com" (ou gardez "payrexx.com").
+  // Stripe : "buy.stripe.com".
+  payment: {
+    providerName: "Payrexx",
+    allowedHosts: ["payrexx.com", "buy.stripe.com"]
+  },
+
   // Galerie « Réalisations »
   // 1. Copiez vos photos dans le dossier assets/realisations/ (JPG ou WebP, 1600 px de large max).
   // 2. Ajoutez une ligne par photo ci-dessous, les plus récentes en premier.

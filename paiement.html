@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payer ma commande · ForgeLab 3D</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="icon" href="assets/img/favicon-64.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html"><img src="assets/img/favicon-64.png" alt="" width="36" height="36"><span>FORGELAB <b>3D</b></span></a>
+      <a class="btn btn-ghost btn-sm" href="index.html">← Retour au site</a>
+    </div>
+  </header>
+
+  <main class="pay-page">
+    <div class="wrap pay-wrap">
+      <p class="eyebrow"><span class="dot"></span> Paiement sécurisé</p>
+      <h1>Payer ma commande</h1>
+
+      <!-- Shown when the link contains a valid quote -->
+      <section class="pay-card" id="pay-ok" hidden>
+        <dl class="pay-summary">
+          <div><dt>Devis</dt><dd id="pay-ref">—</dd></div>
+          <div id="pay-name-row" hidden><dt>Client</dt><dd id="pay-name">—</dd></div>
+          <div class="total"><dt>Montant à payer</dt><dd id="pay-amount">—</dd></div>
+        </dl>
+        <a class="btn btn-fire btn-lg pay-btn" id="pay-go" href="#" rel="noopener">Payer maintenant</a>
+        <ul class="pay-methods" aria-label="Moyens de paiement acceptés">
+          <li>Carte bancaire<small>Visa · Mastercard</small></li>
+          <li>TWINT<small>depuis votre téléphone</small></li>
+        </ul>
+        <p class="pay-note">Vous êtes redirigé vers la page de paiement sécurisée de notre prestataire <span id="pay-provider">de paiement</span>. ForgeLab 3D ne voit jamais les données de votre carte. L'impression de votre commande démarre dès réception du paiement.</p>
+      </section>
+
+      <!-- Shown when someone opens the page without a valid link -->
+      <section class="pay-card" id="pay-missing" hidden>
+        <h2>Lien de paiement introuvable</h2>
+        <p>Pour payer, utilisez le lien reçu par e-mail avec votre devis validé. Il ouvre cette page avec le montant de votre commande.</p>
+        <p>Vous n'avez pas reçu de lien ou il ne fonctionne plus ? Écrivez-nous à <a data-contact-email href="mailto:contact.forgelab3d@gmail.com">contact.forgelab3d@gmail.com</a> en indiquant votre numéro de devis.</p>
+        <a class="btn btn-ghost" href="index.html#devis">Demander un devis</a>
+      </section>
+
+      <ol class="pay-steps">
+        <li><b>Devis validé</b><span>Vous avez accepté notre devis par e-mail.</span></li>
+        <li><b>Paiement</b><span>Carte bancaire ou TWINT, en quelques secondes.</span></li>
+        <li><b>Impression</b><span>Votre pièce part en production, puis par La Poste.</span></li>
+      </ol>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="index.html"><img src="assets/img/favicon-64.png" alt="" width="28" height="28"><span>FORGELAB <b>3D</b></span></a>
+      <p>© <span id="year">2026</span> ForgeLab 3D · Impression 3D sur mesure</p>
+      <nav><a href="confidentialite.html">Confidentialité</a><a href="index.html">Accueil</a></nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/paiement.js"></script>
+</body>
+</html>
