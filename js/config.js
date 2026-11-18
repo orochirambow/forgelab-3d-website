@@ -26,15 +26,18 @@ window.FORGELAB_CONFIG = {
   //   temps machine : ~20 g/h facturés 2.60 CHF/h (électricité, usure, amortissement X2D, main-d'œuvre)
   //   PLA Basic ~19 CHF/kg · PETG HF 25.50 CHF/kg · TPU for AMS 38 CHF/kg · PA6-CF 86 CHF/kg
   //   TPU et PA6-CF s'impriment plus lentement : temps machine compté plus haut.
+  //   Coût de revient/g : PLA 0.15 · PETG 0.16 · TPU 0.28 · PA6-CF 0.30
+  //   Prix de vente = coût × 2 (marge ~50 %, ~45 % sur le TPU), aligné sur la concurrence locale
+  //   (ex. 3D et plus, Gland : 0.35 CHF/g + 2 CHF, nov. 2026).
   pricing: {
-    setupFee: 8,          // frais de préparation par commande
-    minimum: 15,          // montant minimum par commande
+    setupFee: 5,          // frais de préparation par commande
+    minimum: 10,          // montant minimum par commande
     expressMultiplier: 1.4,
     materials: {
-      "PLA":             { perGram: 0.15 },
-      "PETG":            { perGram: 0.16 },
-      "TPU":             { perGram: 0.28 },
-      "Nylon / Carbone": { perGram: 0.30 }
+      "PLA":             { perGram: 0.30 },
+      "PETG":            { perGram: 0.32 },
+      "TPU":             { perGram: 0.50 },
+      "Nylon / Carbone": { perGram: 0.60 }
     },
     // Remise par quantité : à partir de N pièces, -X %
     volumeDiscounts: [
