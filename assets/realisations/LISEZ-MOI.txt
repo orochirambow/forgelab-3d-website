@@ -1,0 +1,2 @@
+Déposez ici les photos de vos commandes terminées (JPG ou WebP).
+Puis ajoutez chaque photo dans la liste « realisations » du fichier js/config.js.

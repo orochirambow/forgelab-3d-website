@@ -31,6 +31,73 @@
     $$(".card, .mat, .steps li, .spec, .section-head").forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
   }
 
+  // Réalisations gallery + lightbox
+  var items = (cfg.realisations || []).filter(function (r) { return r && r.photo; });
+  var gal = $("#gallery"), empty = $("#gallery-empty"), filters = $("#gallery-filters");
+  var lb = $("#lightbox"), lbImg = $("#lb-img"), lbCap = $("#lb-cap"), visible = [], cur = 0;
+  var esc = function (t) { var d = document.createElement("div"); d.textContent = t == null ? "" : String(t); return d.innerHTML.replace(/"/g, "&quot;"); };
+  var closeLb = function () { if (lb.close) lb.close(); else lb.removeAttribute("open"); };
+  var show = function () {
+    var r = visible[cur];
+    lbImg.src = r.photo; lbImg.alt = r.titre || "";
+    lbCap.innerHTML = "<b>" + esc(r.titre) + "</b>" + esc([r.matiere, r.details].filter(Boolean).join(" · "));
+    $("#lb-prev").hidden = $("#lb-next").hidden = visible.length < 2;
+  };
+  var openLb = function (i) {
+    cur = i; show();
+    if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
+  };
+  var step = function (d) { cur = (cur + d + visible.length) % visible.length; show(); };
+  var render = function (mat) {
+    gal.innerHTML = "";
+    visible = items.filter(function (r) { return !mat || r.matiere === mat; });
+    visible.forEach(function (r, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "shot";
+      b.setAttribute("aria-label", "Agrandir : " + (r.titre || "photo"));
+      b.innerHTML = '<img loading="lazy" src="' + esc(r.photo) + '" alt="' + esc(r.titre) + '">' +
+        '<span class="cap"><span>' + esc(r.titre) + '</span>' + (r.matiere ? '<span class="tag">' + esc(r.matiere) + '</span>' : '') + '</span>';
+      b.addEventListener("click", function () { openLb(i); });
+      gal.appendChild(b);
+    });
+  };
+  if (gal && lb) {
+    if (!items.length) {
+      empty.hidden = false;
+    } else {
+      var mats = items.map(function (r) { return r.matiere; }).filter(function (m, i, a) { return m && a.indexOf(m) === i; });
+      if (mats.length > 1) {
+        filters.hidden = false;
+        ["Tout"].concat(mats).forEach(function (m, i) {
+          var f = document.createElement("button");
+          f.type = "button"; f.textContent = m; f.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+          f.addEventListener("click", function () {
+            $$("button", filters).forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+            f.setAttribute("aria-pressed", "true");
+            render(i === 0 ? null : m);
+          });
+          filters.appendChild(f);
+        });
+      }
+      render(null);
+    }
+    $("#lb-close").addEventListener("click", closeLb);
+    $("#lb-prev").addEventListener("click", function () { step(-1); });
+    $("#lb-next").addEventListener("click", function () { step(1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+    lb.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    });
+    var sx = null;
+    lb.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx; sx = null;
+      if (Math.abs(dx) > 50 && visible.length > 1) step(dx < 0 ? 1 : -1);
+    });
+  }
+
   // Estimator
   var p = cfg.pricing;
   var selMat = $("#est-mat"), w = $("#est-w"), wOut = $("#est-w-out"), q = $("#est-q"), ex = $("#est-express"), out = $("#est-price");

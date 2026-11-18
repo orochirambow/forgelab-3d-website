@@ -7,6 +7,15 @@ window.FORGELAB_CONFIG = {
   email: "contact@forgelab3d.ch",
   city: "Suisse · sur rendez-vous",
 
+  // Galerie « Réalisations »
+  // 1. Copiez vos photos dans le dossier assets/realisations/ (JPG ou WebP, 1600 px de large max).
+  // 2. Ajoutez une ligne par photo ci-dessous, les plus récentes en premier.
+  // Exemple :
+  //   { photo: "assets/realisations/support-velo.jpg", titre: "Support de vélo mural", matiere: "PETG", details: "Série de 20 pièces, noir mat" },
+  // Tant que la liste est vide, le site affiche « Les premières photos arrivent bientôt ».
+  realisations: [
+  ],
+
   // Adresse du service qui reçoit le formulaire de devis.
   // Exemple Formspree : "https://formspree.io/f/xxxxxxxx"
   // Laissez vide pour que le formulaire ouvre la messagerie du client (mailto).
