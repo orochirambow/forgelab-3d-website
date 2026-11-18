@@ -4,7 +4,7 @@
  */
 window.FORGELAB_CONFIG = {
   // Coordonnées affichées dans la section Contact
-  email: "contact@forgelab3d.ch",
+  email: "contact.forgelab3d@gmail.com",
   city: "Suisse · sur rendez-vous",
 
   // Galerie « Réalisations »
