@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /lien-paiement.html
+Allow: /
+
+Sitemap: https://orochirambow.github.io/forgelab-3d-website/sitemap.xml
