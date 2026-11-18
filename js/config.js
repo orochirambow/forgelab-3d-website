@@ -21,16 +21,20 @@ window.FORGELAB_CONFIG = {
   // Laissez vide pour que le formulaire ouvre la messagerie du client (mailto).
   formEndpoint: "",
 
-  // Grille tarifaire de l'estimateur (CHF). Prix indicatifs à ajuster.
+  // Grille tarifaire de l'estimateur (CHF), calculée sur les prix Bambu Lab en Suisse (nov. 2026) :
+  //   prix/g = coût filament/g × 1.15 (pertes, purges, ratés) + temps machine/g
+  //   temps machine : ~20 g/h facturés 2.60 CHF/h (électricité, usure, amortissement X2D, main-d'œuvre)
+  //   PLA Basic ~19 CHF/kg · PETG HF 25.50 CHF/kg · TPU for AMS 38 CHF/kg · PA6-CF 86 CHF/kg
+  //   TPU et PA6-CF s'impriment plus lentement : temps machine compté plus haut.
   pricing: {
     setupFee: 8,          // frais de préparation par commande
     minimum: 15,          // montant minimum par commande
     expressMultiplier: 1.4,
     materials: {
-      "PLA":             { perGram: 0.18 },
-      "PETG":            { perGram: 0.20 },
-      "TPU":             { perGram: 0.30 },
-      "Nylon / Carbone": { perGram: 0.42 }
+      "PLA":             { perGram: 0.15 },
+      "PETG":            { perGram: 0.16 },
+      "TPU":             { perGram: 0.28 },
+      "Nylon / Carbone": { perGram: 0.30 }
     },
     // Remise par quantité : à partir de N pièces, -X %
     volumeDiscounts: [
