@@ -10,7 +10,7 @@ window.FORGELAB_CONFIG = {
   // Mentions légales et CGV (pages mentions-legales.html, cgv.html, confidentialite.html)
   legal: {
     owner: "Evan Allan Özkan",
-    street: "",       // rue et numéro, ex. "Chemin des Pressoirs 3" (obligatoire pour la loi)
+    street: "Chemin des Abbesses 2a",
     form: "entreprise individuelle",
     ide: "",          // numéro IDE (CHE-xxx.xxx.xxx) si inscrit au registre du commerce
     vatNumber: ""     // numéro TVA si assujetti, sinon laisser vide
