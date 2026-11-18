@@ -98,6 +98,24 @@
     });
   }
 
+  // Highlight the active tab in the mobile bar
+  var tabs = $$(".tabbar a");
+  if (tabs.length && "IntersectionObserver" in window) {
+    var tabFor = {};
+    tabs.forEach(function (a) { tabFor[a.getAttribute("href").slice(1)] = a; });
+    var secIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.id === "main" ? "top" : e.target.id;
+        if (!tabFor[id]) return;
+        tabs.forEach(function (a) { a.classList.remove("on"); });
+        tabFor[id].classList.add("on");
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ["realisations", "estimation", "devis"].forEach(function (id) { var el = document.getElementById(id); if (el) secIo.observe(el); });
+    var hero = $(".hero"); if (hero) { hero.id = hero.id || "accueil"; tabFor.accueil = tabFor.top; secIo.observe(hero); }
+  }
+
   // Estimator
   var p = cfg.pricing;
   var selMat = $("#est-mat"), w = $("#est-w"), wOut = $("#est-w-out"), q = $("#est-q"), ex = $("#est-express"), out = $("#est-price");
