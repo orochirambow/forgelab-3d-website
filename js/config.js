@@ -32,7 +32,7 @@ window.FORGELAB_CONFIG = {
   pricing: {
     setupFee: 5,          // frais de préparation par commande
     minimum: 10,          // montant minimum par commande
-    expressMultiplier: 1.4,
+    expressMultiplier: 1.4, // non utilisé : pas de service express pour le moment
     materials: {
       "PLA":             { perGram: 0.30 },
       "PETG":            { perGram: 0.32 },

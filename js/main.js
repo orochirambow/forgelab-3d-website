@@ -128,12 +128,12 @@
       var unit = grams * p.materials[selMat.value].perGram;
       var disc = 0; p.volumeDiscounts.forEach(function (d) { if (qty >= d.from) disc = d.discount; });
       var total = unit * qty * (1 - disc) + p.setupFee;
-      if (ex.checked) total *= p.expressMultiplier;
+      if (ex && ex.checked) total *= p.expressMultiplier;
       total = Math.max(p.minimum, total);
       var lo = total * 0.85, hi = total * 1.15;
       out.textContent = chf(lo) + " – " + chf(hi).replace("CHF ", "");
     };
-    [selMat, w, q, ex].forEach(function (el) { el.addEventListener("input", calc); el.addEventListener("change", calc); });
+    [selMat, w, q, ex].filter(Boolean).forEach(function (el) { el.addEventListener("input", calc); el.addEventListener("change", calc); });
     calc();
     // Carry estimator choices into the quote form
     $("#est-to-quote").addEventListener("click", function () {
