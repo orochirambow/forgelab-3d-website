@@ -5,7 +5,7 @@
 window.FORGELAB_CONFIG = {
   // Coordonnées affichées dans la section Contact
   email: "contact.forgelab3d@gmail.com",
-  city: "1027 Lonay (VD) · sur rendez-vous",
+  city: "1027 Lonay (VD) · envoi par La Poste",
 
   // Galerie « Réalisations »
   // 1. Copiez vos photos dans le dossier assets/realisations/ (JPG ou WebP, 1600 px de large max).
