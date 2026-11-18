@@ -5,7 +5,6 @@
 window.FORGELAB_CONFIG = {
   // Coordonnées affichées dans la section Contact
   email: "contact@forgelab3d.ch",
-  phone: "+41 00 000 00 00",
   city: "Suisse · sur rendez-vous",
 
   // Adresse du service qui reçoit le formulaire de devis.

@@ -12,7 +12,7 @@ Site statique (HTML, CSS, JavaScript sans dépendance) pour ForgeLab 3D, atelier
 
 ## Personnaliser
 Tout se règle dans `js/config.js` :
-- `email`, `phone`, `city` : coordonnées affichées
+- `email`, `city` : coordonnées affichées
 - `formEndpoint` : URL d'un service de formulaire (ex. Formspree). Vide = ouverture de la messagerie du visiteur.
 - `pricing` : prix au gramme par matériau, frais fixes, minimum, remises.
 

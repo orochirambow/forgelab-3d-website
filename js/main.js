@@ -9,7 +9,6 @@
 
   // Contact details from config
   if (cfg.email) $$("[data-contact-email]").forEach(function (a) { a.href = "mailto:" + cfg.email; a.textContent = cfg.email; });
-  if (cfg.phone) $$("[data-contact-phone]").forEach(function (a) { a.href = "tel:" + cfg.phone.replace(/\s+/g, ""); a.textContent = cfg.phone; });
   if (cfg.city) $$("[data-contact-city]").forEach(function (b) { b.textContent = cfg.city; });
 
   // Mobile nav
